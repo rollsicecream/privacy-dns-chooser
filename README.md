@@ -1,6 +1,12 @@
+## Work in progress!
+
 # Privacy DNS chooser.
 
 Welcome to the Privacy DNS chooser script. This script allows you to use Cloudlflare, Quad9, NextDNS and Mullvad DNS on Linux with systemd-resolved. It also enables recommended configs like DoT (DNS-over-TLS, as DoH isn't avaliable on systemd-resolved, yet...). This script is only avaliable on Linux.
+
+## Why a script?
+
+I wanted to create this script because many people very new to Linux and discovered great tools like NextDNS may not feel comfortable going to a terminal and edit the resolved.conf file of their Linux distribution. If they do a change, by mistake, it could just break the network of their device.
 
 ## Can we just do the same thing with a GUI?
 
