@@ -1,21 +1,57 @@
-## Work in progress!
+# Privacy DNS Chooser Script for Linux
 
-# Privacy DNS chooser.
+Welcome to the Privacy DNS Chooser Script for Linux! This script simplifies the process of enabling DNS-over-TLS with privacy-focused DNS providers on your Linux system using systemd-resolved.
 
-Welcome to the Privacy DNS chooser script. This script allows you to use Cloudlflare, Quad9, NextDNS and Mullvad DNS on Linux with systemd-resolved. It also enables recommended configs like DoT (DNS-over-TLS, as DoH isn't avaliable on systemd-resolved, yet...). This script is only avaliable on Linux.
+## Features
 
-## Why a script?
+- Choose from popular private DNS providers : Quad9, Mullvad DNS, and NextDNS.
+- Easy setup with a very simple but user-friendly interface.
+- Enhanced security and privacy with DNS-over-TLS.
 
-I wanted to create this script because many people very new to Linux and discovered great tools like NextDNS may not feel comfortable going to a terminal and edit the resolved.conf file of their Linux distribution. If they do a change, by mistake, it could just break the network of their device.
+## Requirements
 
-## Can we just do the same thing with a GUI?
+- **systemd-resolved:** Ensure that the `systemd-resolved` package is installed on your Linux system.
 
-Well, as far as I know, no... in GNOME or KDE, the default assistant to manage your internet connections (nm-connection-editor) only supports using IP addresses as DNS providers. I don't recommend using DNS providers that only uses IP addresses to deliver their DNS services because these are unencrypted.
+## How to Use
 
-## Why a script?
+1. Ensure systemd-resolved is installed on your Linux system.
+2. Download the script from [GitHub](https://github.com/rollsicecream/privacy-dns-chooser/releases).
+3. Run the script with sudo to choose your preferred DNS provider.
 
-I wanted to create this script because many people very new to Linux and discovered great tools like NextDNS may not feel comfortable going to a terminal and edit the resolved.conf file of their Linux distribution. If they do a change, by mistake, it could just break the network of their device.
+### DNS Providers
 
-## Disclosure about NextDNS usage on the script.
+- **[Quad9](https://quad9.net)** : Secure and privacy-respecting DNS service.
+- **[Mullvad DNS](https://mullvad.net)** : DNS service by the privacy-focused VPN provider Mullvad.
+- **[NextDNS](https://nextdns.io)** : Advanced, feature-rich private and secure DNS filtering service. Enter your configuration number during setup.
 
-On the script, if you choose NextDNS, it will ask you if you want to use the default NextDNS config or your own configuration (e.g. a12345.dns.nextdns.io). Your configuration number will never be sent to any server.
+## Important
+
+This script is designed for use with systemd-resolved. Ensure it's installed before running.
+
+## Feedback
+
+I welcome your feedback! Report issues or share suggestions on [GitHub Issues](#https://github.com/rollsicecream/privacy-dns-chooser/issues).
+
+## Installation
+
+```bash
+curl -O https://github.com/rollsicecream/privacy-dns-chooser/privacy_dns_chooser.sh
+chmod +x privacy_dns_chooser.sh
+sudo ./privacy_dns_chooser.sh
+```
+## Disclosure about NextDNS usage
+
+During DNS setup, the user, if they choose NextDNS as their choice, should enter their configuration number (e.g. a12345). This configuration number will **not** and will **never** be sent to any server. This number will stay safe.
+
+## License
+
+This program is licensed under the GNU General Public License v3.0.
+
+
+
+
+
+
+
+
+
