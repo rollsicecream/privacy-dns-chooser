@@ -29,9 +29,9 @@ assignees: ''
 
 **System Information**
 
-Linux Distro: <!-- e.g., Fedora 39 -->
-Shell: <!-- e.g., Bash 5.1 -->
-Script Version: <!-- e.g., v1.0 -->
+ - Linux Distro: <!-- e.g., Fedora 39 -->
+ - Shell: <!-- e.g., Bash 5.1 -->
+ - Script Version: <!-- e.g., v1.0 -->
 
 **Additional Information**
 <!-- Any other relevant information about your system or setup -->
