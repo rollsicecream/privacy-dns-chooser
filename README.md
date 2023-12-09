@@ -18,7 +18,7 @@ Welcome to the Privacy DNS Chooser Script for Linux! This script simplifies the 
 2. Download the script from [GitHub](https://github.com/rollsicecream/privacy-dns-chooser/releases).
 3. Run the script with sudo to choose your preferred DNS provider.
 
-### DNS Providers
+### Supported DNS Providers
 
 - **[Quad9](https://quad9.net)** : Secure and privacy-respecting DNS service.
 - **[Mullvad DNS](https://mullvad.net)** : DNS service by the privacy-focused VPN provider Mullvad.
@@ -30,7 +30,7 @@ This script is designed for use with systemd-resolved. Ensure it's installed bef
 
 ## Feedback
 
-I welcome your feedback! Report issues or share suggestions on [GitHub Issues](#https://github.com/rollsicecream/privacy-dns-chooser/issues).
+I welcome your feedback! Report issues or share suggestions on [GitHub Issues](https://github.com/rollsicecream/privacy-dns-chooser/issues).
 
 ## Installation
 
@@ -39,6 +39,18 @@ curl -O https://github.com/rollsicecream/privacy-dns-chooser/privacy_dns_chooser
 chmod +x privacy_dns_chooser.sh
 sudo ./privacy_dns_chooser.sh
 ```
+
+## The script broke my Internet!
+
+It should be a bug. Report an issue first via [GitHub Issues](https://github.com/rollsicecream/privacy-dns-chooser/issues). To restore Internet access to your machine, launch these commands in the terminal : 
+
+```
+curl -O https://github.com/rollsicecream/privacy-dns-chooser/rescue.sh
+chmod +x rescue.sh
+sudo ./rescue.sh
+```
+This script will revert /etc/systemd/resolved.conf to his default state.
+
 ## Disclosure about NextDNS usage
 
 During DNS setup, the user, if they choose NextDNS as their choice, should enter their configuration number (e.g. a12345). This configuration number will **not** and will **never** be sent to any server. This number will stay safe.
