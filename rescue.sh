@@ -1,5 +1,13 @@
 #!/bin/bash
 
+echo "Welcome to the Rescue Script of the Privacy DNS Chooser Script for Linux."
+read -p "Do you want to wipe the 'problematic' configuration and restore systemd-resolved to his default configuration? (yes/no): " answer
+
+if [[ "$answer" != "yes" ]]; then
+    echo "Aborting. No changes have been made."
+    exit 0
+fi
+
 # Define the new content for resolved.conf
 RESOLVED_CONF_CONTENT=$(cat <<EOL
 #  This file is part of systemd.
