@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-<!--Thank you for creating a bug report for this program, remove every '<!--' and '-->' with the actual content! Including this text! -->
+<!--Thank you for creating a bug report for this program, remove every part below the sections (like "A clear and concise description of the bug") with the actual content! Including this text! -->
 
 **Description**
 <!-- A clear and concise description of the bug -->
@@ -28,7 +28,8 @@ assignees: ''
 <!-- If applicable, add screenshots to help illustrate the problem -->
 
 **System Information**
-OS: <!-- e.g., Ubuntu 20.04 -->
+
+Linux Distro: <!-- e.g., Fedora 39 -->
 Shell: <!-- e.g., Bash 5.1 -->
 Script Version: <!-- e.g., v1.0 -->
 
