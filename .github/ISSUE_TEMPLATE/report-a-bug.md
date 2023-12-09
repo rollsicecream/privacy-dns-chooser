@@ -1,13 +1,13 @@
 ---
 name: Report a bug
 about: Create a report to help the program be better for everyone!
-title: ''
+title: "[BUG]"
 labels: bug
 assignees: ''
 
 ---
 
-<!--Thank you for creating a bug report for this program, remove every part below the sections (like "A clear and concise description of the bug") with the actual content! Including this text! -->
+<!--Thank you for creating a bug report for this program, remove every part below the sections like "A clear and concise description of the bug" with the actual content! Including this text! -->
 
 **Description**
 <!-- A clear and concise description of the bug -->
