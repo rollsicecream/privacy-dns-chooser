@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Welcome to the Rescue Script of the Privacy DNS Chooser Script for Linux."
+echo "Welcome to the Rescue Script of the Privacy DNS Chooser Script for Linux version v1.0."
 read -p "Do you want to wipe the 'problematic' configuration and restore systemd-resolved to his default configuration? (yes/no): " answer
 
 if [[ "$answer" != "yes" ]]; then
