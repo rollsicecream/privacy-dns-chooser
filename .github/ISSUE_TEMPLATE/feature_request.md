@@ -11,20 +11,20 @@ assignees: ''
 
 ## Feature Request
 
-Description
+### Description
 <!-- A clear and concise description of the feature you are proposing -->
 
-Motivation
+### Motivation
 <!-- Explain why this feature would be valuable and how it would benefit the project -->
 
-Proposed Solution
+### Proposed Solution
 <!-- If you have a suggestion on how to implement the feature, provide details here -->
 
-Alternatives Considered
+### Alternatives Considered
 <!-- Are there any alternative solutions or features you've considered? -->
 
-Additional Context
+### Additional Context
 <!-- Any additional information or context that might be helpful in understanding the feature request -->
 
-Related Issues
+### Related Issues
 <!-- If applicable, link to related issues or discussions -->
