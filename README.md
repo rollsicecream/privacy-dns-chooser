@@ -1,12 +1,12 @@
 # Privacy DNS Chooser Script for Linux
 
-Welcome to the Privacy DNS Chooser Script for Linux! This script simplifies the process of enabling DNS-over-TLS with privacy-focused DNS providers on your Linux system using systemd-resolved.
+Welcome to the Privacy DNS Chooser Script for Linux! This script simplifies the process of enabling DNS-over-TLS and DNSSEC with privacy-focused DNS providers on your Linux system using systemd-resolved.
 
 ## Features
 
-- Choose from popular private DNS providers : Quad9, Mullvad DNS, and NextDNS.
+- Choose from popular private DNS providers : Quad9, Mullvad DNS, NextDNS and AdGuard DNS
 - Easy setup with a very simple but user-friendly interface.
-- Enhanced security and privacy with DNS-over-TLS.
+- Enhanced security and privacy with DNS-over-TLS and DNSSEC
 
 ## Requirements
 
@@ -23,10 +23,10 @@ Welcome to the Privacy DNS Chooser Script for Linux! This script simplifies the 
 - **[Quad9](https://quad9.net)** : Secure and privacy-respecting DNS service.
 - **[Mullvad DNS](https://mullvad.net)** : DNS service by the privacy-focused VPN provider Mullvad.
 - **[NextDNS](https://nextdns.io)** : Advanced, feature-rich private and secure DNS filtering service. Enter your configuration number during setup.
-
+- **[AdGuard DNS](https://https://adguard-dns.io/)** : AdGuard DNS is a public DNS service offered by AdGuard, a company known for its ad-blocking and privacy-enhancing solutions.
 ## Important
 
-This script is designed for use with systemd-resolved. Ensure it's installed before running.
+This script is designed for use with `systemd-resolved`. Ensure it's installed before running.
 
 ## Feedback
 
