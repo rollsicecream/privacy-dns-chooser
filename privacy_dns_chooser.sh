@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Welcome to the Privacy DNS chooser script for Linux version v1.0."
+echo "Welcome to the Privacy DNS chooser script for Linux version v1.1."
 echo "This script will help you enable DoT with a privacy DNS provider on your Linux system."
 
 echo "Be AWARE that the script will not run properly if the systemd-resolved package is not installed on your Linux system."
@@ -11,18 +11,24 @@ echo "To check it, do: sudo <your package manager, like apt or dnf> systemd-reso
 echo "Choose a DNS provider:"
 echo "1. Quad9"
 echo "2. Mullvad DNS"
-echo "3. NextDNS"
+echo "3. AdGuard DNS"
+echo "4. NextDNS"
 
 read -p "Enter the number corresponding to your choice: " choice
 
 case $choice in
     1)
         dns_provider="9.9.9.9#dns.quad9.net"
+        provider_name="Quad9"
         ;;
     2)
         dns_provider="194.242.2.2#dns.mullvad.net"
+        provider_name="Mullvad DNS"
         ;;
-    3)
+    3)  dns_provider="94.140.14.14#dns-adguard-dns.io"
+        provider_name="AdGuard DNS"
+        ;;
+    4)
         echo "You've selected NextDNS."
         read -p "Enter your NextDNS configuration number (e.g., a12345): " nextdns_config
         dns_provider="45.90.28.0#$nextdns_config.dns.nextdns.io"
@@ -32,18 +38,26 @@ case $choice in
         ;;
     *)
         echo "Invalid choice. Exiting."
-        echo "Your DNS provider has not been set due to errors. Do you have systemd-resolved installed on your system?"
+        echo "Your DNS provider has not been set due to errors. Have you typed the right number?"
         exit 1
         ;;
 esac
+
+# Confirm the user's choice before making changes
+read -p "You've selected $provider_name. Are you sure you want to change your DNS provider? (yes/no): " confirmation
+
+if [[ "$confirmation" != "yes" ]]; then
+    echo "DNS change aborted. No changes have been made."
+    exit 0
+fi
 
 resolved_conf="/etc/systemd/resolved.conf"
 
 # Uncomment and modify DNS and DNSOverTLS settings (disable DNSSEC)
 sudo sed -i -e "/^\[Resolve\]/,/^\s*$/ s/^#*\(DNS=\).*/\1$dns_provider/" \
             -e "/^\[Resolve\]/,/^\s*$/ s/^#*\(DNSOverTLS=\).*/\1yes/" \
-            -e "/^\[Resolve\]/,/^\s*$/ s/^#*\(DNSSEC=\).*/\1no/" \
-            -e "/^\[Resolve\]/,/^\s*$/ s/^#*\(DNSSECStub=\).*/\1no/" $resolved_conf
+            -e "/^\[Resolve\]/,/^\s*$/ s/^#*\(DNSSEC=\).*/\1yes/" \
+            -e "/^\[Resolve\]/,/^\s*$/ s/^#*\(DNSSECStub=\).*/\1yes/" $resolved_conf
 
 if [ "$choice" -eq 3 ]; then
     # Add additional DNS lines for NextDNS
@@ -57,7 +71,7 @@ fi
 
 # Enable and start the systemd-resolved service
 if sudo systemctl enable systemd-resolved && sudo systemctl restart systemd-resolved; then
-    echo "You're all set! Your DNS has been set, and DNS-over-TLS has been enabled for security measures."
+    echo "Done! Your DNS has been set, and DNS-over-TLS has been enabled for security measures."
 else
     echo "Your DNS provider has not been set due to errors. Do you have systemd-resolved installed on your system?"
 fi
