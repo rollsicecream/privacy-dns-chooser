@@ -60,7 +60,7 @@ fi
 
 resolved_conf="/etc/systemd/resolved.conf"
 
-# Uncomment and modify DNS and DNSOverTLS settings (disable DNSSEC)
+# Uncomment and modify DNS and DNSOverTLS settings
 sudo sed -i -e "/^\[Resolve\]/,/^\s*$/ s/^#*\(DNS=\).*/\1$dns_provider/" \
             -e "/^\[Resolve\]/,/^\s*$/ s/^#*\(DNSOverTLS=\).*/\1yes/" \
             -e "/^\[Resolve\]/,/^\s*$/ s/^#*\(DNSSEC=\).*/\1yes/" \
