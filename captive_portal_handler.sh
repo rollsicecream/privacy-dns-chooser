@@ -1,15 +1,14 @@
 #!/bin/bash
 
-echo "Welcome to the Rescue Script of the Privacy DNS Chooser Script for Linux version v1.1."
-read -p "Do you want to wipe the 'problematic' configuration and restore systemd-resolved to his default configuration? (yes/no): " answer
+# Step 1: User launches the script
+echo "Welcome to the Captive Portal Handler Script."
 
-if [[ "$answer" != "yes" ]]; then
-    echo "Aborting. No changes have been made."
-    exit 0
-fi
+# Step 2: Script runs and saves a backup copy of resolved.conf
+cp /etc/systemd/resolved.conf /etc/systemd/resolved.conf.backup
 
-# Define the new content for resolved.conf
-RESOLVED_CONF_CONTENT=$(cat <<EOL
+# Step 3: Wipe and restore resolved.conf to default state
+echo "Restoring resolved.conf to default state..."
+sudo tee /etc/systemd/resolved.conf > /dev/null <<EOL
 #  This file is part of systemd.
 #
 #  systemd is free software; you can redistribute it and/or modify it under the
@@ -45,15 +44,28 @@ RESOLVED_CONF_CONTENT=$(cat <<EOL
 #ReadEtcHosts=yes
 #ResolveUnicastSingleLabel=no
 EOL
-)
 
-# Backup the current resolved.conf
-sudo cp /etc/systemd/resolved.conf /etc/systemd/resolved.conf.backup
-
-# Overwrite the contents of resolved.conf with the new configuration
-echo "$RESOLVED_CONF_CONTENT" | sudo tee /etc/systemd/resolved.conf > /dev/null
-
-# Restart the systemd-resolved.service
+# Restart systemd-resolved to apply changes after restoring resolved.conf
 sudo systemctl restart systemd-resolved
 
-echo "resolved.conf has been reset to default configuration, and systemd-resolved.service has been restarted to make Internet working. The resolved.conf file has been rescued."
+# Step 4: Prompt the user to deal with the captive portal
+echo "Please deal with the captive portal to connect to the network."
+
+# Step 5: Detect successful connection to the network
+read -p "Have you successfully connected to the network? (yes/no): " connected
+
+# Step 6: Replace the current default state version with the backup if the user is connected
+if [[ "$connected" == "yes" ]]; then
+    echo "Replacing resolved.conf with the backup..."
+    cp /etc/systemd/resolved.conf.backup /etc/systemd/resolved.conf
+fi
+
+# Restart systemd-resolved to apply the final changes
+sudo systemctl restart systemd-resolved
+
+# Step 7: Delete the backup file
+echo "Cleaning up..."
+rm /etc/systemd/resolved.conf.backup
+
+echo "Captive portal handling complete."
+

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Welcome to the Privacy DNS chooser script for Linux version v1.3."
+echo "Welcome to the Privacy DNS chooser script for Linux version v1.2."
 echo "This script will help you enable DoT with a privacy DNS provider on your Linux system."
 
 echo "Be AWARE that the script will not run properly if the systemd-resolved package is not installed on your Linux system."
